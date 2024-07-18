@@ -20,7 +20,12 @@ Route::post('/login/all', [loginController::class, 'authenticate'])->name('accou
 
 
 // for groupin the routes
-Route ::group (['middleware' => 'auth'], function(){
-    Route::get('login/dashboard', [DashboardController::class, 'index'])->name('home');
-}); 
+Route::group(['prefix' => 'login'], function(){
+    // Route::get('dashboard', [DashboardController::class, 'index'])->name('home');
+
+    Route ::group (['middleware' => 'auth'], function(){
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('home');
+    }); 
+});
+
 // Route::get('login/dashboard', [DashboardController::class, 'index'])->name('home');
