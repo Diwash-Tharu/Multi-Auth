@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
-                                                <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" >
+                                                <input type="password" class="form-control" name="password" id="password" value="{{password }}" placeholder="Password" >
                                                 <label for="password" class="form-label">Password</label>
                                             </div>
                                         </div>
