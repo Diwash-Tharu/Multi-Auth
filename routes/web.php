@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route ::group(['prefix'=>'account'],function (){
+Route ::group(['prefix'=>'/account'],function (){
 
     Route::group (['middleware'=>'guest'],function(){
         Route::get('/login', [loginController::class, 'index'])->name('login.page');
@@ -16,7 +16,15 @@ Route ::group(['prefix'=>'account'],function (){
         Route ::post('/login', [loginController::class, 'authenticate'])->name('account.login');
         Route::get('/logout', [loginController::class, 'logout'])->name('account.logout');
     });
-// });
+
+    
+    Route::group (['middleware'=>'auth'],function(){
+        
+    // Route::post('/login/all', [loginController::class, 'authenticate'])->name('account.login');
+
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('home');
+    });
+});
 // Route::get('/account/login', [loginController::class, 'index'])->name('login.page');
 // Route::get('/account/register', [loginController::class, 'register'])->name('register.page');
 // Route ::post('/account/register', [loginController::class, 'processRegister'])->name('register');
@@ -24,7 +32,3 @@ Route ::group(['prefix'=>'account'],function (){
 // Route::get('/account/logout', [loginController::class, 'logout'])->name('account.logout');
 
 
-
-Route::post('/login/all', [loginController::class, 'authenticate'])->name('account.login');
-
-Route::get('login/dashboard', [DashboardController::class, 'index'])->name('home');
