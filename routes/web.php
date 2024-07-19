@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\DashboardController;	
+use App\Http\Controllers\admin\LoginControler as AdminLoginControler;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,3 +34,4 @@ Route::group(['middleware' => 'guest'], function(){
 });
 
 // Route::get('login/dashboard', [DashboardController::class, 'index'])->name('home');
+Route::get('admin/login', [AdminLoginControler::class, 'index'])->name('admin.login');

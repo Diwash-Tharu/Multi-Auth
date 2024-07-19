@@ -30,7 +30,7 @@
                                         @endif
 
                                         <div class="mb-5">
-                                            <h4 class="text-center">Login Here</h4>
+                                            <h4 class="text-center">Admin Login</h4>
                                         </div>
                                     </div>
                                 </div>
