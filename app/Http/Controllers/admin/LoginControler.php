@@ -26,7 +26,7 @@ class LoginControler extends Controller
             
             if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password])){
                 // return redirect()->route('home');
-                return redirect()->route('admin.adminDashboard');
+                return redirect()->route('admin.loginpage');
             }
             else{
                 return redirect()->route('admin.login')->with('error','Invalid email or password');
@@ -39,5 +39,10 @@ class LoginControler extends Controller
             ->withErrors($validatoe)
             ->withInput();
         }
+    }
+
+    public function dasboard(){
+        return view('admin.adminDashboard');
+       
     }
 }

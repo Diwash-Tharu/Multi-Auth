@@ -44,7 +44,7 @@
                     <h3 class="h5 pt-2">Admin Dashboard</h3>
                 </div>
                 <div class="card-body">
-                    You are logged in !!
+                    admin You are logged in !!
                 </div>
            </div>
         </div>
