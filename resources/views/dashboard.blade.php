@@ -29,7 +29,7 @@
                             <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, {{Auth::user()->name}}</a>
                             <ul class="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">                          
                                 <li>
-                                    <a class="dropdown-item" href="{{route('account.logout')}}">Logout</a>
+                                    <a class="dropdown-item" href="{{route('account.logouts')}}">Logout</a>
                                 </li>
                             </ul>
                         </li>

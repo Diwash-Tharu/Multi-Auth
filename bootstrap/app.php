@@ -13,7 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         //
         $middleware	->redirectTo(
-            'auth', '/account/login');
+            guests: 'diwash/account/login',
+            users: 'diwash/account/login',
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
