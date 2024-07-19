@@ -26,7 +26,14 @@ class LoginControler extends Controller
             
             if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password])){
                 // return redirect()->route('home');
-                return redirect()->route('admin.loginpage');
+                if(Auth::guard('admin')->user()->role == 'admin'){
+                    Auth::guard('admin')->logout();
+                    return redirect()->route('admin.loginpage');
+                }
+                else{
+                    return redirect()->route('admin.login')->with('error','Invalid role fot this user');
+                }
+                // return redirect()->route('admin.loginpage');
             }
             else{
                 return redirect()->route('admin.login')->with('error','Invalid email or password');
