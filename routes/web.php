@@ -35,3 +35,5 @@ Route::group(['middleware' => 'guest'], function(){
 
 // Route::get('login/dashboard', [DashboardController::class, 'index'])->name('home');
 Route::get('admin/login', [AdminLoginControler::class, 'index'])->name('admin.login');
+
+Route::post('admin/login', [AdminLoginControler::class, 'authenticate'])->name('admin.login.post');

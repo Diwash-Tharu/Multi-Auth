@@ -14,6 +14,7 @@ class LoginControler extends Controller
         return view('admin.login');
     }
 
+    // this method will aunthicate the admin
     public function authenticate(Request $request)
     {
         $validatoe = validator::make($request->all(),[
@@ -23,23 +24,20 @@ class LoginControler extends Controller
 
         if($validatoe->passes()){
             
-            if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+            if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password])){
                 // return redirect()->route('home');
-                return redirect()->route('home');
+                return redirect()->route('admin.adminDashboard');
             }
             else{
-                return redirect()->route('login.page')->with('error','Invalid email or password');
+                return redirect()->route('admin.login')->with('error','Invalid email or password');
             }
             // return redirect()->back()->withErrors($validatoe)->withInput();
         }
         else{
             // return view('login');
-            return redirect()->route('login.page')
+            return redirect()->route('admin.login')
             ->withErrors($validatoe)
             ->withInput();
         }
-
     }
-
-
 }
