@@ -7,5 +7,8 @@ use Illuminate\Http\Request;
 
 class LoginControler extends Controller
 {
-    //
+    //this method will call the another function inthe code
+    public function index(){
+        return view('admin.login');
+    }
 }
